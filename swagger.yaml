@@ -82,10 +82,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /api/tasks/edit/{task_id}/:
+    put:
+        summary: Api Edit Task
+        operationId: api_edit_task_api_tasks_edit__task_id___put
+        parameters:
+          - name: task_id
+            in: path
+            required: true
+            schema:
+              type: integer
+              title: Task Id
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskEdit'
+        responses:
+          '200':
+            description: Successful Response
+            content:
+              application/json:
+                schema: {}
+          '422':
+            description: Validation Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/HTTPValidationError'
   /api/tasks/delete/{task_id}:
-    get:
+    delete:
       summary: Api Delete Task
-      operationId: api_delete_task_api_tasks_delete__task_id__get
+      operationId: api_delete_task_api_tasks_delete__task_id__delete
       parameters:
         - name: task_id
           in: path
