@@ -199,6 +199,27 @@ components:
         - date
         - priority
       title: TaskCreate
+    TaskEdit:
+      properties:
+        title:
+          type: string
+          title: Title
+        description:
+          type: string
+          title: Description
+        date:
+          type: string
+          format: date-time
+          title: Date
+        priority:
+          $ref: '#/components/schemas/Priority'
+      type: object
+      required:
+        - title
+        - description
+        - date
+        - priority
+      title: TaskEdit
     ValidationError:
       properties:
         loc:
